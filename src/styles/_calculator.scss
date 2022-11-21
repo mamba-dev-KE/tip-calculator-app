@@ -6,7 +6,7 @@
   display: grid;
   place-items: center;
 
-  animation: fade-in 1s ease-in-out;
+  animation: fade-in 800ms ease-in-out;
 
   h1 {
     display: flex;
@@ -18,11 +18,21 @@
   }
 
   article {
-    padding: 2rem;
+    padding: 1.4rem;
     margin-block-start: 1.8rem;
     border-radius: 1.4rem;
 
+    max-width: 30rem;
+    margin-inline: auto;
     background-color: hsl($color-white);
+
+    @media (min-width: 40em) {
+      display: flex;
+      gap: 2rem;
+      justify-content: space-between;
+
+      max-width: 55rem;
+    }
   }
 }
 
@@ -72,6 +82,10 @@
 
   margin-block-start: 0.75rem;
 
+  @media (min-width: 40em) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   button {
     border: 0;
     border-radius: 0.3rem;
@@ -100,6 +114,69 @@
 .calculator-people {
   margin-block-start: 2rem;
   color: hsl($color-dark-grayish-cyan);
+}
+
+.calculator-output-container {
+  display: flex;
+  gap: 1.8rem;
+  flex-direction: column;
+
+  flex: 1;
+
+  padding: 1.5rem;
+  margin: 0.5rem;
+  border-radius: 0.9rem;
+
+  background-color: hsl($color-dark-cyan);
+
+  button {
+    border: 0;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+
+    font-size: 1.3rem;
+    color: hsl($color-dark-cyan);
+    text-transform: uppercase;
+    background-color: hsl($color-strong-cyan);
+
+    @media (min-width: 40em) {
+      // margin-top: 6rem;
+      // display: block;
+    }
+  }
+
+  @media (max-width: 40em) {
+    margin-block-start: 2rem;
+  }
+
+  @media (min-width: 40em) {
+    padding: 3rem;
+  }
+}
+
+.calculator-output {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+
+  h5 {
+    display: flex;
+    flex-direction: column;
+
+    span:first-child {
+      font-size: 1rem;
+      color: hsl($color-white);
+    }
+
+    span:last-child {
+      color: hsl($color-grayish-cyan);
+    }
+  }
+
+  p {
+    font-size: 2rem;
+    color: hsl($color-strong-cyan);
+  }
 }
 
 @keyframes fade-in {
