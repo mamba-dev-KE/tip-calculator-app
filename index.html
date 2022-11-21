@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tip Calculator</title>
+    <script type="module" src="/src/app.ts" defer></script>
+  </head>
+  <body>
+    <section class="calculator">
+      <div class="container">
+        <h1>
+          <span>SPLI</span>
+          <span>TTER</span>
+        </h1>
+        <article>
+          <div class="calculator-bill">
+            <label for="calculator">Bill</label> <br />
+            <div class="calculator-input">
+              <img src="./src/images/icon-dollar.svg" alt="" />
+              <input type="text" id="calculator" name="calculator" />
+            </div>
+          </div>
+          <div class="calculator-tip">
+            <h4>Select Tip %</h4>
+            <!-- add btns here programmatically -->
+            <div class="calculator-tip-btns">
+              <button>5%</button>
+              <button>10%</button>
+              <button>15%</button>
+              <button>25%</button>
+              <button>50%</button>
+              <button>Custom</button>
+            </div>
+          </div>
+          <div class="calculator-people">
+            <label for="people">Number of People</label>
+            <div class="calculator-input">
+              <img src="./src/images/icon-person.svg" alt="" />
+              <input type="text" id="people" name="people" />
+            </div>
+          </div>
+          <div class="calculator-output-container">
+            <div class="calculator-output">
+              <h5>
+                <span>Tip Amount</span>
+                <span>/ person</span>
+              </h5>
+              <p0>$4.27</p0>1256
+            </div>
+            <div class="calculator-output">
+              <h5>
+                <span>Total</span>
+                <span>/ person</span>
+              </h5>
+              <p>$32.79</p>
+            </div>
+            <button>Reset</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </body>
+</html>
