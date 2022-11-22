@@ -20,26 +20,31 @@
               <label for="calculator">Bill</label> <br />
               <div class="calculator-input">
                 <img src="./src/images/icon-dollar.svg" alt="" />
-                <input type="text" id="calculator" name="calculator" />
+                <input
+                  type="number"
+                  id="calculator"
+                  value="0"
+                  name="calculator"
+                />
               </div>
             </div>
             <div class="calculator-tip">
               <h4>Select Tip %</h4>
               <!-- add btns here programmatically -->
               <div class="calculator-tip-btns">
-                <button>5%</button>
-                <button>10%</button>
-                <button>15%</button>
-                <button>25%</button>
-                <button>50%</button>
-                <button>Custom</button>
+                <button value="5">5%</button>
+                <button value="10">10%</button>
+                <button value="15">15%</button>
+                <button value="25">25%</button>
+                <button value="50">50%</button>
+                <button value="">Custom</button>
               </div>
             </div>
             <div class="calculator-people">
               <label for="people">Number of People</label>
               <div class="calculator-input">
                 <img src="./src/images/icon-person.svg" alt="" />
-                <input type="text" id="people" name="people" />
+                <input type="number" id="people" value="0" name="people" />
               </div>
             </div>
           </div>
@@ -49,14 +54,14 @@
                 <span>Tip Amount</span>
                 <span>/ person</span>
               </h5>
-              <p>$4.27</p>
+              <p>$0.00</p>
             </div>
             <div class="calculator-output">
               <h5>
                 <span>Total</span>
                 <span>/ person</span>
               </h5>
-              <p>$32.79</p>
+              <p>$0.00</p>
             </div>
             <button>Reset</button>
           </div>

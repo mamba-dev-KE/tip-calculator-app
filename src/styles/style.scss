@@ -14,7 +14,10 @@ body {
   font-family: 'Space Mono', monospace;
   background-color: hsl($color-light-grayish-cyan);
   min-height: 100vh;
-  padding-block: 2rem;
+
+  @media (max-width: 40em) {
+    padding-block: 2rem;
+  }
 }
 
 img {
