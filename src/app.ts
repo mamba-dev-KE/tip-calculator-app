@@ -1,24 +1,58 @@
+import {
+  calculateBill,
+  toggleBillError,
+  togglePeopleErrorLabel,
+  createOutput,
+} from './utilities';
+import {
+  billValueInput,
+  noOfPeopleInput,
+  tipBtns,
+  tipAmountOutput,
+  amountPerPersonOutput,
+  errorLabel,
+} from './elements';
 import '@fontsource/space-mono/700.css';
 import './styles/style.scss';
 
-const tipBtns = document.querySelectorAll<HTMLButtonElement>(
-  '.calculator-tip-btns button'
-)!;
-const noOfPeopleInput = document.querySelector('.calculator-people input');
-const tipAmountOutput = document.querySelectorAll<HTMLParagraphElement>(
-  '.calculator-output p'
-)[0]!;
-const amountPerPersonOutput = document.querySelectorAll<HTMLParagraphElement>(
-  '.calculator-output p'
-)[1]!;
+/* create  bill function */
+function createBill(): void {
+  const billValue = Number(billValueInput.value);
+  const noOfPeople = Number(noOfPeopleInput.value);
 
-function calculateBill(value: number, tipPercent: number, noOfPeople: number) {
-  const tipAmount = ((value / noOfPeople) * tipPercent) / 100;
-  const amoutPerPerson = value / noOfPeople + tipAmount;
-  return [tipAmount.toFixed(2), amoutPerPerson.toFixed(2)];
+  /* calculate bill */
+  const [tipAmount, amoutPerPerson] = calculateBill(
+    billValue,
+    tipPercent,
+    noOfPeople
+  );
+
+  /* toggle error label */
+  togglePeopleErrorLabel(noOfPeople, errorLabel);
+
+  if (billValue === 0) {
+    billValueInput?.setAttribute('data-error', 'true');
+  } else {
+    billValueInput?.setAttribute('data-error', 'false');
+  }
+
+  if (noOfPeople === 0) {
+    noOfPeopleInput?.setAttribute('data-error', 'true');
+  } else {
+    noOfPeopleInput?.setAttribute('data-error', 'false');
+  }
+
+  /* tip and amount per person output */
+  createOutput(
+    tipAmount,
+    amoutPerPerson,
+    tipAmountOutput,
+    amountPerPersonOutput
+  );
 }
 
 let tipPercent: number;
+const listeners: string[] = ['change', 'focus'];
 
 tipBtns.forEach((btn) => {
   btn?.addEventListener('click', () => {
@@ -26,22 +60,11 @@ tipBtns.forEach((btn) => {
   });
 });
 
-noOfPeopleInput?.addEventListener('keyup', () => {
-  const billValue = Number(
-    document.querySelector<HTMLInputElement>('.calculator-bill input')!.value
-  );
-  const noOfPeople = Number(
-    document.querySelector<HTMLInputElement>('.calculator-people input')!.value
-  );
-
-  const [tipAmount, amoutPerPerson] = calculateBill(
-    billValue,
-    tipPercent,
-    noOfPeople
-  );
-
-  if (tipAmount && amoutPerPerson) {
-    tipAmountOutput.textContent = `$${tipAmount}`;
-    amountPerPersonOutput.textContent = `$${amoutPerPerson}`;
-  }
+listeners.forEach((listener) => {
+  billValueInput.addEventListener(listener, () => {
+    toggleBillError(Number(billValueInput.value), billValueInput);
+  });
+  noOfPeopleInput.addEventListener(listener, () => {
+    createBill();
+  });
 });

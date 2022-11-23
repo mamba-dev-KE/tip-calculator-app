@@ -71,6 +71,10 @@
     font-size: 1.5rem;
     color: hsl($color-dark-cyan);
 
+    &[data-error='true'] {
+      outline: 1px solid red;
+    }
+
     @media (max-width: 40em) {
       margin-block-start: 0.5rem;
     }
@@ -117,12 +121,21 @@
       color: hsl($color-dark-cyan);
       transform: scale(1.02);
     }
+
+    &:focus {
+      background-color: hsl($color-strong-cyan);
+    }
   }
 }
 
 .calculator-people {
   margin-block-start: 2rem;
   color: hsl($color-dark-grayish-cyan);
+  &-labels {
+    display: flex;
+    justify-content: space-between;
+    color: hsl($color-dark-grayish-cyan);
+  }
 }
 
 .calculator-output-container {

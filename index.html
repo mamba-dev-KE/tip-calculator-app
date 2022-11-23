@@ -7,7 +7,7 @@
     <title>Tip Calculator</title>
     <script type="module" src="/src/app.ts" defer></script>
   </head>
-  <body>
+  <body class="body">
     <section class="calculator">
       <div class="container">
         <h1>
@@ -23,7 +23,7 @@
                 <input
                   type="number"
                   id="calculator"
-                  value="0"
+                  placeholder="0"
                   name="calculator"
                 />
               </div>
@@ -41,10 +41,19 @@
               </div>
             </div>
             <div class="calculator-people">
-              <label for="people">Number of People</label>
+              <div class="calculator-people-labels">
+                <label for="people">Number of People</label>
+                <label for="error"></label>
+              </div>
               <div class="calculator-input">
                 <img src="./src/images/icon-person.svg" alt="" />
-                <input type="number" id="people" value="0" name="people" />
+                <input
+                  type="number"
+                  id="people"
+                  placeholder="0"
+                  name="people"
+                  min="0"
+                />
               </div>
             </div>
           </div>
@@ -63,7 +72,7 @@
               </h5>
               <p>$0.00</p>
             </div>
-            <button>Reset</button>
+            <button type="reset">Reset</button>
           </div>
         </article>
       </div>

@@ -1,4 +1,11 @@
+@use './variables' as *;
+
 .container {
   width: min(100% - 1rem, 55rem);
   margin-inline: auto;
+}
+
+.error {
+  color: hsl($color-red);
+  opacity: 0.5;
 }
