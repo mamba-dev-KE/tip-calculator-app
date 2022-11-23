@@ -9,10 +9,10 @@ export function calculateBill(
 }
 
 export function toggleBillError(bill: number, input: HTMLInputElement): void {
-  if (bill < 1) {
-    input?.setAttribute('data-error', 'true');
-  } else {
+  if (bill >= 1) {
     input?.setAttribute('data-error', 'false');
+  } else {
+    input?.setAttribute('data-error', 'true');
   }
 }
 
